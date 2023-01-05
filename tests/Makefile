@@ -80,6 +80,28 @@ install/local/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -113,38 +135,16 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd/CMakeFiles /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(CMAKE_COMMAND) -E cmake_progress_start /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd/CMakeFiles /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd/tests/CMakeFiles/progress.marks
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(MAKE) -f CMakeFiles/Makefile2 tests/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(MAKE) -f CMakeFiles/Makefile2 tests/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,70 +154,60 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(MAKE) -f CMakeFiles/Makefile2 tests/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(MAKE) -f CMakeFiles/Makefile2 tests/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named arcd
+# Convenience name for target.
+tests/CMakeFiles/codec_tests.dir/rule:
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(MAKE) -f CMakeFiles/Makefile2 tests/CMakeFiles/codec_tests.dir/rule
+.PHONY : tests/CMakeFiles/codec_tests.dir/rule
 
-# Build rule for target.
-arcd: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 arcd
-.PHONY : arcd
+# Convenience name for target.
+codec_tests: tests/CMakeFiles/codec_tests.dir/rule
 
-# fast build rule for target.
-arcd/fast:
-	$(MAKE) -f arcd/CMakeFiles/arcd.dir/build.make arcd/CMakeFiles/arcd.dir/build
-.PHONY : arcd/fast
-
-#=============================================================================
-# Target rules for targets named arcd_stream
-
-# Build rule for target.
-arcd_stream: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 arcd_stream
-.PHONY : arcd_stream
-
-# fast build rule for target.
-arcd_stream/fast:
-	$(MAKE) -f examples/CMakeFiles/arcd_stream.dir/build.make examples/CMakeFiles/arcd_stream.dir/build
-.PHONY : arcd_stream/fast
-
-#=============================================================================
-# Target rules for targets named adaptive_model
-
-# Build rule for target.
-adaptive_model: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 adaptive_model
-.PHONY : adaptive_model
-
-# fast build rule for target.
-adaptive_model/fast:
-	$(MAKE) -f examples/CMakeFiles/adaptive_model.dir/build.make examples/CMakeFiles/adaptive_model.dir/build
-.PHONY : adaptive_model/fast
-
-#=============================================================================
-# Target rules for targets named codec_tests
-
-# Build rule for target.
-codec_tests: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 codec_tests
 .PHONY : codec_tests
 
 # fast build rule for target.
 codec_tests/fast:
-	$(MAKE) -f tests/CMakeFiles/codec_tests.dir/build.make tests/CMakeFiles/codec_tests.dir/build
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(MAKE) -f tests/CMakeFiles/codec_tests.dir/build.make tests/CMakeFiles/codec_tests.dir/build
 .PHONY : codec_tests/fast
+
+codec_tests.o: codec_tests.cpp.o
+
+.PHONY : codec_tests.o
+
+# target to build an object file
+codec_tests.cpp.o:
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(MAKE) -f tests/CMakeFiles/codec_tests.dir/build.make tests/CMakeFiles/codec_tests.dir/codec_tests.cpp.o
+.PHONY : codec_tests.cpp.o
+
+codec_tests.i: codec_tests.cpp.i
+
+.PHONY : codec_tests.i
+
+# target to preprocess a source file
+codec_tests.cpp.i:
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(MAKE) -f tests/CMakeFiles/codec_tests.dir/build.make tests/CMakeFiles/codec_tests.dir/codec_tests.cpp.i
+.PHONY : codec_tests.cpp.i
+
+codec_tests.s: codec_tests.cpp.s
+
+.PHONY : codec_tests.s
+
+# target to generate assembly for a file
+codec_tests.cpp.s:
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(MAKE) -f tests/CMakeFiles/codec_tests.dir/build.make tests/CMakeFiles/codec_tests.dir/codec_tests.cpp.s
+.PHONY : codec_tests.cpp.s
 
 # Help Target
 help:
@@ -227,15 +217,15 @@ help:
 	@echo "... depend"
 	@echo "... install/strip"
 	@echo "... install/local"
+	@echo "... edit_cache"
+	@echo "... test"
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... edit_cache"
-	@echo "... test"
-	@echo "... arcd"
-	@echo "... arcd_stream"
-	@echo "... adaptive_model"
 	@echo "... codec_tests"
+	@echo "... codec_tests.o"
+	@echo "... codec_tests.i"
+	@echo "... codec_tests.s"
 .PHONY : help
 
 
@@ -247,6 +237,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

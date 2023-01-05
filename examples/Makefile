@@ -137,14 +137,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd/CMakeFiles /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(CMAKE_COMMAND) -E cmake_progress_start /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd/CMakeFiles /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd/examples/CMakeFiles/progress.marks
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(MAKE) -f CMakeFiles/Makefile2 examples/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(MAKE) -f CMakeFiles/Makefile2 examples/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,70 +154,102 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(MAKE) -f CMakeFiles/Makefile2 examples/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(MAKE) -f CMakeFiles/Makefile2 examples/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named arcd
+# Convenience name for target.
+examples/CMakeFiles/arcd_stream.dir/rule:
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(MAKE) -f CMakeFiles/Makefile2 examples/CMakeFiles/arcd_stream.dir/rule
+.PHONY : examples/CMakeFiles/arcd_stream.dir/rule
 
-# Build rule for target.
-arcd: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 arcd
-.PHONY : arcd
+# Convenience name for target.
+arcd_stream: examples/CMakeFiles/arcd_stream.dir/rule
 
-# fast build rule for target.
-arcd/fast:
-	$(MAKE) -f arcd/CMakeFiles/arcd.dir/build.make arcd/CMakeFiles/arcd.dir/build
-.PHONY : arcd/fast
-
-#=============================================================================
-# Target rules for targets named arcd_stream
-
-# Build rule for target.
-arcd_stream: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 arcd_stream
 .PHONY : arcd_stream
 
 # fast build rule for target.
 arcd_stream/fast:
-	$(MAKE) -f examples/CMakeFiles/arcd_stream.dir/build.make examples/CMakeFiles/arcd_stream.dir/build
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(MAKE) -f examples/CMakeFiles/arcd_stream.dir/build.make examples/CMakeFiles/arcd_stream.dir/build
 .PHONY : arcd_stream/fast
 
-#=============================================================================
-# Target rules for targets named adaptive_model
+# Convenience name for target.
+examples/CMakeFiles/adaptive_model.dir/rule:
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(MAKE) -f CMakeFiles/Makefile2 examples/CMakeFiles/adaptive_model.dir/rule
+.PHONY : examples/CMakeFiles/adaptive_model.dir/rule
 
-# Build rule for target.
-adaptive_model: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 adaptive_model
+# Convenience name for target.
+adaptive_model: examples/CMakeFiles/adaptive_model.dir/rule
+
 .PHONY : adaptive_model
 
 # fast build rule for target.
 adaptive_model/fast:
-	$(MAKE) -f examples/CMakeFiles/adaptive_model.dir/build.make examples/CMakeFiles/adaptive_model.dir/build
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(MAKE) -f examples/CMakeFiles/adaptive_model.dir/build.make examples/CMakeFiles/adaptive_model.dir/build
 .PHONY : adaptive_model/fast
 
-#=============================================================================
-# Target rules for targets named codec_tests
+adaptive_model.o: adaptive_model.c.o
 
-# Build rule for target.
-codec_tests: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 codec_tests
-.PHONY : codec_tests
+.PHONY : adaptive_model.o
 
-# fast build rule for target.
-codec_tests/fast:
-	$(MAKE) -f tests/CMakeFiles/codec_tests.dir/build.make tests/CMakeFiles/codec_tests.dir/build
-.PHONY : codec_tests/fast
+# target to build an object file
+adaptive_model.c.o:
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(MAKE) -f examples/CMakeFiles/adaptive_model.dir/build.make examples/CMakeFiles/adaptive_model.dir/adaptive_model.c.o
+.PHONY : adaptive_model.c.o
+
+adaptive_model.i: adaptive_model.c.i
+
+.PHONY : adaptive_model.i
+
+# target to preprocess a source file
+adaptive_model.c.i:
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(MAKE) -f examples/CMakeFiles/adaptive_model.dir/build.make examples/CMakeFiles/adaptive_model.dir/adaptive_model.c.i
+.PHONY : adaptive_model.c.i
+
+adaptive_model.s: adaptive_model.c.s
+
+.PHONY : adaptive_model.s
+
+# target to generate assembly for a file
+adaptive_model.c.s:
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(MAKE) -f examples/CMakeFiles/adaptive_model.dir/build.make examples/CMakeFiles/adaptive_model.dir/adaptive_model.c.s
+.PHONY : adaptive_model.c.s
+
+arcd_stream.o: arcd_stream.c.o
+
+.PHONY : arcd_stream.o
+
+# target to build an object file
+arcd_stream.c.o:
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(MAKE) -f examples/CMakeFiles/arcd_stream.dir/build.make examples/CMakeFiles/arcd_stream.dir/arcd_stream.c.o
+.PHONY : arcd_stream.c.o
+
+arcd_stream.i: arcd_stream.c.i
+
+.PHONY : arcd_stream.i
+
+# target to preprocess a source file
+arcd_stream.c.i:
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(MAKE) -f examples/CMakeFiles/arcd_stream.dir/build.make examples/CMakeFiles/arcd_stream.dir/arcd_stream.c.i
+.PHONY : arcd_stream.c.i
+
+arcd_stream.s: arcd_stream.c.s
+
+.PHONY : arcd_stream.s
+
+# target to generate assembly for a file
+arcd_stream.c.s:
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(MAKE) -f examples/CMakeFiles/arcd_stream.dir/build.make examples/CMakeFiles/arcd_stream.dir/arcd_stream.c.s
+.PHONY : arcd_stream.c.s
 
 # Help Target
 help:
@@ -232,10 +264,14 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
-	@echo "... arcd"
 	@echo "... arcd_stream"
 	@echo "... adaptive_model"
-	@echo "... codec_tests"
+	@echo "... adaptive_model.o"
+	@echo "... adaptive_model.i"
+	@echo "... adaptive_model.s"
+	@echo "... arcd_stream.o"
+	@echo "... arcd_stream.i"
+	@echo "... arcd_stream.s"
 .PHONY : help
 
 
@@ -247,6 +283,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
