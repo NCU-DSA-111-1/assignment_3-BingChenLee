@@ -1,3 +1,0 @@
-/home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd/tests/CMakeFiles/edit_cache.dir
-/home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd/tests/CMakeFiles/rebuild_cache.dir
-/home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd/tests/CMakeFiles/codec_tests.dir
