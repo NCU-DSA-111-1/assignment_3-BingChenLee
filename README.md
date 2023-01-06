@@ -1,45 +1,58 @@
-# huffman
+# Data Structure Assignment 3
 
-[![Build](https://github.com/drichardson/huffman/actions/workflows/build.yml/badge.svg)](https://github.com/drichardson/huffman/actions/workflows/build.yml)
+**Subject**: Arithmetic Coding VS Huffman Coding  
+**Author**: 通訊二 110503518 李秉宸  
+**Last Updated**: 2023.01.06
 
-A huffman coding library and command line interface to the library. The encoder is a 2 pass encoder. The first pass generates a huffman tree and the second pass encodes the data. The decoder is one pass and uses a huffman code table at the beginning of the compressed file to decode the data.
+## Compile & Run
 
-libhuffman has functions for encoding and decoding both files and memory.
+```sh
+# Compile arcd_coding
+cd arcd_coding
+make
+cd examples
 
+# Run arcd_coding
+./arcd_stream -e <input_file | tee encoding_file
+./arcd_stream -d <input_file | tee decoding_file
 
-## Makefile Build
+# Compile huff_coding
+cd huff_coding
+make
 
-To build:
+# Run huff_coding
+./huffcode -i input_file -o encoding_file -c
+./huffcode -i input_file -o decoding_file -d
+```
 
-    make
+## Usage
+```sh
+# Origin "test" content
+The system should not require more than a few days of supervision to learn. It should be usable on modestly priced computer systems. Most of all, it should be simple and convenient for the users. The current system is not meeting business objectives because they are not able to tracks the servicing of the vehicles at Huffman Trucking.
 
-To run unit tests:
+# With arcd_coding encode
+T*�5H���������c���i9�N·,*��ih������E�S�̬���Y�]
+�����&����T7Ǧ\�
+               $4Ġ�d即��ʕEr�x&�nGx[���EWMsȲy[jGwmFZ6�Ͷ����/-�K+m�����;�$�H������S�����-~#��V��c��p��t��8z���\�J�$���b�1a]�z��kX"9��HT?���>���n
 
-    make check
+Coding time: 0.000061 s
 
-To run unit tests under valgrind:
+# With arcd_coding decode
+The system should not require more than a few days of supervision to learn. It should be usable on modestly priced computer systems. Most of all, it should be simple and convenient for the users. The current system is not meeting business objectives because they are not able to tracks the servicing of the vehicles at Huffman Trucking.
 
-    make valgrind_check
+Coding time: 0.000047 s
 
+# With huff_coding encode
+Coding time: 0.000066 s
 
-## CMake Build
+# With huff_coding decode
+Coding time: 0.000029 s
 
-To build:
+```
 
-    mkdir build
-    cd build
-    cmake ..
-    cmake --build .
+## Reference
+**[1] Arithmetic Coding**
+> GitHub - wonder-mice/arcd: Simple arithmetic coding library in C
 
-To run all tests:
-
-    ctest
-
-To run unit tests:
-
-    ctest -R ^check$
-
-To run unit tests under valgrind:
-
-    ctest -R ^valgrind_check$
-
+**[2] Huffman Coding**
+> GitHub - drichardson/huffman: huffman encoder/decoder
