@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #ifdef WIN32
 #include <malloc.h>
@@ -39,6 +40,9 @@ int main(int argc, char** argv)
 	int close_in = 0;
 	int close_out = 0;
 	int rc = 0;
+
+	clock_t start=0, end=0;
+	double time_used = 0;
 
 	/* Get the command line arguments. */
 	while ((opt = getopt(argc, argv, "i:o:cdhvm")) != -1)
@@ -102,11 +106,15 @@ int main(int argc, char** argv)
 
 	if (compress)
 	{
+		start = clock();
 		rc = huffman_encode_file(in, out);
+		end = clock();
 	}
 	else
 	{
+		start = clock();
 		rc = huffman_decode_file(in, out);
+		end = clock();
 	}
 
 	/* Since exit is about to happen, the fclose calls aren't necessary, but they make valgrind
@@ -120,6 +128,9 @@ int main(int argc, char** argv)
 	{
 		fclose(out);
 	}
+
+	time_used = ((double)(end - start) / CLOCKS_PER_SEC);
+	printf("the coding time is %lf sec.\n",time_used);
 
 	return rc;
 }
