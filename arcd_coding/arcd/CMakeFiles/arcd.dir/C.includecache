@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd/arcd/arcd.c
+assert.h
+-
+arcd.h
+/home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd/arcd/arcd.h
+
+/home/bingchen/110503518_assignment_4/Data_Structures_Assignment4/arcd/arcd/arcd.h
+
